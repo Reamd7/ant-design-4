@@ -1,4 +1,4 @@
-@import '../../input/style/mixin';
+@import '../../input/style/mixin.less';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
@@ -10,7 +10,9 @@
   @hoverBorderColor;
   @outlineColor;
 ) {
-  &.@{select-prefix-cls}:not(.@{select-prefix-cls}-disabled):not(.@{select-prefix-cls}-customize-input):not(.@{pagination-prefix-cls}-size-changer) {
+  &.@{select-prefix-cls}:not(.@{select-prefix-cls}-disabled):not(
+      .@{select-prefix-cls}-customize-input
+    ):not(.@{pagination-prefix-cls}-size-changer) {
     .@{select-prefix-cls}-selector {
       background-color: @background-color;
       border-color: @border-color !important;
