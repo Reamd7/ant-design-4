@@ -133,7 +133,7 @@
 // Base background color for most components
 @component-background: #fff;
 // Popover background color
-@popover-background: @component-background;
+@popover-background: var(--ant-component-background);
 @popover-customize-border-color: @border-color-split;
 @font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
@@ -249,7 +249,7 @@
 
 // Shadow
 @shadow-color: rgba(0, 0, 0, 0.15);
-@shadow-color-inverse: @component-background;
+@shadow-color-inverse: var(--ant-component-background);
 @box-shadow-base: @shadow-2;
 @shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05),
   0 -12px 48px 16px rgba(0, 0, 0, 0.03);
@@ -276,7 +276,7 @@
 @btn-primary-bg: @primary-color;
 
 @btn-default-color: @text-color;
-@btn-default-bg: @component-background;
+@btn-default-bg: var(--ant-component-background);
 @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
@@ -287,9 +287,9 @@
 @btn-disable-bg: @disabled-bg;
 @btn-disable-border: @border-color-base;
 
-@btn-default-ghost-color: @component-background;
+@btn-default-ghost-color: var(--ant-component-background);
 @btn-default-ghost-bg: transparent;
-@btn-default-ghost-border: @component-background;
+@btn-default-ghost-border: var(--ant-component-background);
 
 @btn-font-size-lg: @font-size-lg;
 @btn-font-size-sm: @font-size-base;
@@ -348,7 +348,7 @@
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
-@dropdown-menu-submenu-disabled-bg: @component-background;
+@dropdown-menu-submenu-disabled-bg: var(--ant-component-background);
 @dropdown-selected-bg: @item-active-bg;
 
 // Empty
@@ -361,7 +361,7 @@
 @radio-dot-size: @radio-size - 8px;
 @radio-dot-color: @primary-color;
 @radio-dot-disabled-color: fade(@black, 20%);
-@radio-solid-checked-color: @component-background;
+@radio-solid-checked-color: var(--ant-component-background);
 
 // Radio buttons
 @radio-button-bg: @btn-default-bg;
@@ -457,7 +457,7 @@
 @collapse-panel-border-radius: @border-radius-base;
 
 //Dropdown
-@dropdown-menu-bg: @component-background;
+@dropdown-menu-bg: var(--ant-component-background);
 @dropdown-vertical-padding: 5px;
 @dropdown-edge-child-vertical-padding: 4px;
 @dropdown-font-size: @font-size-base;
@@ -504,11 +504,11 @@
 @input-color: @text-color;
 @input-icon-color: @input-color;
 @input-border-color: @border-color-base;
-@input-bg: @component-background;
+@input-bg: var(--ant-component-background);
 @input-number-hover-border-color: @input-hover-border-color;
 @input-number-handler-active-bg: #f4f4f4;
 @input-number-handler-hover-bg: @primary-5;
-@input-number-handler-bg: @component-background;
+@input-number-handler-bg: var(--ant-component-background);
 @input-number-handler-border-color: @border-color-base;
 @input-addon-bg: @background-color-light;
 @input-hover-border-color: @primary-5;
@@ -519,7 +519,7 @@
 
 // Mentions
 // ---
-@mentions-dropdown-bg: @component-background;
+@mentions-dropdown-bg: var(--ant-component-background);
 @mentions-dropdown-menu-item-hover-bg: @mentions-dropdown-bg;
 
 // Select
@@ -527,14 +527,14 @@
 @select-border-color: @border-color-base;
 @select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
-@select-dropdown-bg: @component-background;
+@select-dropdown-bg: var(--ant-component-background);
 @select-item-selected-bg: @primary-1;
 @select-item-active-bg: @item-hover-bg;
 @select-dropdown-vertical-padding: @dropdown-vertical-padding;
 @select-dropdown-font-size: @dropdown-font-size;
 @select-dropdown-line-height: @dropdown-line-height;
 @select-dropdown-height: 32px;
-@select-background: @component-background;
+@select-background: var(--ant-component-background);
 @select-clear-background: @select-background;
 @select-selection-item-bg: @background-color-base;
 @select-selection-item-border-color: @border-color-split;
@@ -548,9 +548,9 @@
 
 // Cascader
 // ---
-@cascader-bg: @component-background;
+@cascader-bg: var(--ant-component-background);
 @cascader-item-selected-bg: @primary-1;
-@cascader-menu-bg: @component-background;
+@cascader-menu-bg: var(--ant-component-background);
 @cascader-menu-border-color-split: @border-color-split;
 
 // Cascader
@@ -587,7 +587,7 @@
 // Popover
 // ---
 // Popover body background color
-@popover-bg: @component-background;
+@popover-bg: var(--ant-component-background);
 // Popover text color
 @popover-color: @text-color;
 // Popover maximum width
@@ -609,7 +609,7 @@
 @modal-header-padding-vertical: @padding-md;
 @modal-header-padding-horizontal: @padding-lg;
 @modal-body-padding: @padding-lg;
-@modal-header-bg: @component-background;
+@modal-header-bg: var(--ant-component-background);
 @modal-header-padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
 @modal-header-border-width: @border-width-base;
 @modal-header-border-style: @border-style-base;
@@ -617,7 +617,7 @@
 @modal-header-title-font-size: @font-size-lg;
 @modal-header-border-color-split: @border-color-split;
 @modal-header-close-size: @modal-header-title-line-height + 2 * @modal-header-padding-vertical;
-@modal-content-bg: @component-background;
+@modal-content-bg: var(--ant-component-background);
 @modal-heading-color: @heading-color;
 @modal-close-color: @text-color-secondary;
 @modal-footer-bg: transparent;
@@ -647,8 +647,8 @@
 @menu-item-height: 40px;
 @menu-item-group-height: @line-height-base;
 @menu-collapsed-width: 80px;
-@menu-bg: @component-background;
-@menu-popup-bg: @component-background;
+@menu-bg: var(--ant-component-background);
+@menu-popup-bg: var(--ant-component-background);
 @menu-item-color: @text-color;
 @menu-inline-submenu-bg: @background-color-light;
 @menu-highlight-color: @primary-color;
@@ -688,7 +688,7 @@
 
 // Table
 // --
-@table-bg: @component-background;
+@table-bg: var(--ant-component-background);
 @table-header-bg: @background-color-light;
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
@@ -722,8 +722,8 @@
 // Filter
 @table-header-filter-active-bg: rgba(0, 0, 0, 0.04);
 @table-filter-btns-bg: inherit;
-@table-filter-dropdown-bg: @component-background;
-@table-expand-icon-bg: @component-background;
+@table-filter-dropdown-bg: var(--ant-component-background);
+@table-expand-icon-bg: var(--ant-component-background);
 @table-selection-column-width: 32px;
 // Sticky
 @table-sticky-scroll-bar-bg: fade(#000, 35%);
@@ -739,7 +739,7 @@
 
 // TimePicker
 // ---
-@picker-bg: @component-background;
+@picker-bg: var(--ant-component-background);
 @picker-basic-cell-hover-color: @item-hover-bg;
 @picker-basic-cell-active-with-range-color: @primary-1;
 @picker-basic-cell-hover-with-range-color: ~'var(--@{ant-prefix}-primary-color-deprecated-l-35)';
@@ -757,7 +757,7 @@
 
 // Calendar
 // ---
-@calendar-bg: @component-background;
+@calendar-bg: var(--ant-component-background);
 @calendar-input-bg: @input-bg;
 @calendar-border-color: @border-color-inverse;
 @calendar-item-active-bg: @item-active-bg;
@@ -780,7 +780,7 @@
 @badge-font-size-sm: @font-size-sm;
 @badge-font-weight: normal;
 @badge-status-size: 6px;
-@badge-text-color: @component-background;
+@badge-text-color: var(--ant-component-background);
 @badge-color: @highlight-color;
 
 // Rate
@@ -803,10 +803,10 @@
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
 @card-padding-base-sm: (@card-padding-base / 2);
-@card-actions-background: @component-background;
+@card-actions-background: var(--ant-component-background);
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
-@card-background: @component-background;
+@card-background: var(--ant-component-background);
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
   0 5px 12px 4px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-base;
@@ -887,7 +887,7 @@
 @switch-sm-min-width: 28px;
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
-@switch-bg: @component-background;
+@switch-bg: var(--ant-component-background);
 @switch-shadow-color: fade(#00230b, 20%);
 @switch-padding: 2px;
 @switch-inner-margin-min: ceil(@switch-height * 0.3);
@@ -897,16 +897,16 @@
 
 // Pagination
 // ---
-@pagination-item-bg: @component-background;
+@pagination-item-bg: var(--ant-component-background);
 @pagination-item-size: @height-base;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: @font-family;
 @pagination-font-weight-active: 500;
-@pagination-item-bg-active: @component-background;
-@pagination-item-link-bg: @component-background;
+@pagination-item-bg-active: var(--ant-component-background);
+@pagination-item-link-bg: var(--ant-component-background);
 @pagination-item-disabled-color-active: @disabled-color;
 @pagination-item-disabled-bg-active: @disabled-active-bg;
-@pagination-item-input-bg: @component-background;
+@pagination-item-input-bg: var(--ant-component-background);
 @pagination-mini-options-size-changer-top: 0px;
 
 // PageHeader
@@ -940,7 +940,7 @@
 @slider-track-background-color: @primary-3;
 @slider-track-background-color-hover: @primary-4;
 @slider-handle-border-width: 2px;
-@slider-handle-background-color: @component-background;
+@slider-handle-background-color: var(--ant-component-background);
 @slider-handle-color: @primary-3;
 @slider-handle-color-hover: @primary-4;
 @slider-handle-color-focus: ~'var(--@{ant-prefix}-primary-color-deprecated-t-20)';
@@ -953,11 +953,11 @@
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: ~'var(--@{ant-prefix}-primary-color-deprecated-t-50)';
 @slider-disabled-color: @disabled-color;
-@slider-disabled-background-color: @component-background;
+@slider-disabled-background-color: var(--ant-component-background);
 
 // Tree
 // ---
-@tree-bg: @component-background;
+@tree-bg: var(--ant-component-background);
 @tree-title-height: 24px;
 @tree-child-padding: 18px;
 @tree-directory-selected-color: #fff;
@@ -971,7 +971,7 @@
 @collapse-header-padding-extra: 40px;
 @collapse-header-bg: @background-color-light;
 @collapse-content-padding: @padding-md;
-@collapse-content-bg: @component-background;
+@collapse-content-bg: var(--ant-component-background);
 @collapse-header-arrow-left: 16px;
 
 // Skeleton
@@ -998,7 +998,7 @@
 // Message
 // ---
 @message-notice-content-padding: 10px 16px;
-@message-notice-content-bg: @component-background;
+@message-notice-content-bg: var(--ant-component-background);
 // Motion
 // ---
 @wave-animation-width: 6px;
@@ -1042,7 +1042,7 @@
 @list-item-meta-margin-bottom: @padding-md;
 @list-item-meta-avatar-margin-right: @padding-md;
 @list-item-meta-title-margin-bottom: @padding-sm;
-@list-customize-card-bg: @component-background;
+@list-customize-card-bg: var(--ant-component-background);
 @list-item-meta-description-font-size: @font-size-base;
 
 // Statistic
@@ -1056,7 +1056,7 @@
 // ---
 @drawer-header-padding: @padding-md @padding-lg;
 @drawer-body-padding: @padding-lg;
-@drawer-bg: @component-background;
+@drawer-bg: var(--ant-component-background);
 @drawer-footer-padding-vertical: @modal-footer-padding-vertical;
 @drawer-footer-padding-horizontal: @modal-footer-padding-horizontal;
 @drawer-header-close-size: 56px;
@@ -1069,7 +1069,7 @@
 @timeline-color: @border-color-split;
 @timeline-dot-border-width: 2px;
 @timeline-dot-color: @primary-color;
-@timeline-dot-bg: @component-background;
+@timeline-dot-bg: var(--ant-component-background);
 @timeline-item-padding-bottom: 20px;
 
 // Typography
@@ -1086,7 +1086,7 @@
 // ---
 @process-tail-color: @border-color-split;
 @steps-nav-arrow-color: fade(@black, 25%);
-@steps-background: @component-background;
+@steps-background: var(--ant-component-background);
 @steps-icon-size: 32px;
 @steps-icon-custom-size: @steps-icon-size;
 @steps-icon-custom-top: 0px;
@@ -1108,7 +1108,7 @@
 
 // Notification
 // ---
-@notification-bg: @component-background;
+@notification-bg: var(--ant-component-background);
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
 

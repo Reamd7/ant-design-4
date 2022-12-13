@@ -198,7 +198,7 @@
 // Shadow
 // ---
 @shadow-color: rgba(0, 0, 0, 0.45);
-@shadow-color-inverse: @component-background;
+@shadow-color-inverse: var(--ant-component-background);
 @box-shadow-base: @shadow-2;
 @shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.32), 0 -9px 28px 0 rgba(0, 0, 0, 0.2),
   0 -12px 48px 16px rgba(0, 0, 0, 0.12);
@@ -269,10 +269,10 @@
 // ---
 @select-background: transparent;
 @select-dropdown-bg: @popover-background;
-@select-clear-background: @component-background;
+@select-clear-background: var(--ant-component-background);
 @select-selection-item-bg: fade(@white, 8);
 @select-selection-item-border-color: @border-color-split;
-@select-multiple-disabled-background: @component-background;
+@select-multiple-disabled-background: var(--ant-component-background);
 @select-multiple-item-disabled-color: #595959;
 @select-multiple-item-disabled-border-color: @popover-background;
 
@@ -290,7 +290,7 @@
 // Menu
 // ---
 // dark theme
-@menu-dark-inline-submenu-bg: @component-background;
+@menu-dark-inline-submenu-bg: var(--ant-component-background);
 @menu-dark-bg: @popover-background;
 @menu-popup-bg: @popover-background;
 
@@ -362,7 +362,7 @@
 @calendar-bg: @popover-background;
 @calendar-input-bg: @calendar-bg;
 @calendar-border-color: transparent;
-@calendar-full-bg: @component-background;
+@calendar-full-bg: var(--ant-component-background);
 
 // Badge
 // ---
@@ -376,7 +376,7 @@
 
 // Card
 // ---
-@card-actions-background: @component-background;
+@card-actions-background: var(--ant-component-background);
 @card-skeleton-bg: #303030;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.64), 0 3px 6px 0 rgba(0, 0, 0, 0.48),
   0 5px 12px 4px rgba(0, 0, 0, 0.36);

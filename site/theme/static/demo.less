@@ -20,13 +20,13 @@
     &,
     a {
       color: @site-text-color;
-      background: @component-background;
+      background: var(--ant-component-background);
     }
   }
 
   &,
   .code-box-demo {
-    background-color: @component-background;
+    background-color: var(--ant-component-background);
   }
 
   .markdown {
@@ -224,7 +224,7 @@
     pre {
       margin: 0;
       padding: 0;
-      background: @component-background;
+      background: var(--ant-component-background);
     }
 
     &:not(:first-child) {
@@ -279,7 +279,7 @@
     height: 14px;
     font-size: 14px;
     text-align: center;
-    background: @component-background;
+    background: var(--ant-component-background);
     cursor: pointer;
     transition: transform 0.24s;
 
@@ -333,7 +333,7 @@
     margin: 0;
 
     code {
-      background: @component-background;
+      background: var(--ant-component-background);
       border: none;
     }
   }
