@@ -14,6 +14,9 @@
 
 // -------- Colors -----------
 // >>> Primary
+:root {
+  --ant-primary-color: @blue-6;
+}
 @primary-color: @blue-6;
 @primary-color-hover: color(~`colorPalette('@{primary-color}', 5) `);
 @primary-color-active: color(~`colorPalette('@{primary-color}', 7) `);
@@ -207,11 +210,18 @@
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
-@border-color-split: hsv(0, 0, 94%); // split border inside a component
-@border-color-inverse: @white;
+:root {
+  --ant-border-color-base: hsv(0, 0, 85%); // base border outline a component
+  --ant-border-color-split: hsv(0, 0, 94%); // split border inside a component
+  --ant-border-color-inverse: @white;
+  // --ant-border-width-base: 1px; // width of the border for a component
+  --ant-border-style-base: solid; // style of a components border
+}
+@border-color-base: var(--ant-border-color-base);
+@border-color-split: var(--ant-border-color-split);
+@border-color-inverse: var(--ant-border-color-inverse);
 @border-width-base: 1px; // width of the border for a component
-@border-style-base: solid; // style of a components border
+@border-style-base: var(--ant-border-style-base);
 
 // Outline
 @outline-blur-size: 0;
@@ -1046,22 +1056,28 @@
 
 // Timeline
 // ---
-@timeline-width: 2px;
-@timeline-color: @border-color-split;
-@timeline-dot-border-width: 2px;
-@timeline-dot-color: @primary-color;
-@timeline-dot-bg: var(--ant-component-background);
-@timeline-item-padding-bottom: 20px;
+:root {
+  --ant-timeline-width: 2px;
+  --ant-timeline-color: var(--ant-border-color-split);
+  --ant-timeline-dot-border-width: 2px;
+  --ant-timeline-dot-color: var(--ant-primary-color);
+  --ant-timeline-dot-bg: var(--ant-component-background);
+  --ant-timeline-item-padding-bottom: 20px;
+}
 
 // Typography
 // ---
-@typography-title-font-weight: 600;
-@typography-title-margin-top: 1.2em;
-@typography-title-margin-bottom: 0.5em;
+:root {
+  --ant-typography-title-font-weight: 600;
+  --ant-typography-title-margin-top: 1.2em;
+  --ant-typography-title-margin-bottom: 0.5em;
+}
 
 // Upload
 // ---
-@upload-actions-color: @text-color-secondary;
+:root {
+  --ant-upload-actions-color: @text-color-secondary;
+}
 
 // Steps
 // ---
@@ -1089,32 +1105,38 @@
 
 // Notification
 // ---
-@notification-bg: var(--ant-component-background);
-@notification-padding-vertical: 16px;
-@notification-padding-horizontal: 24px;
+:root {
+  --ant-notification-bg: var(--ant-component-background);
+  --ant-notification-padding-vertical: 16px;
+  --ant-notification-padding-horizontal: 24px;
+}
 
 // Result
 // ---
-@result-title-font-size: 24px;
-@result-subtitle-font-size: @font-size-base;
-@result-icon-font-size: 72px;
-@result-extra-margin: 24px 0 0 0;
+:root {
+  --ant-result-title-font-size: 24px;
+  --ant-result-subtitle-font-size: @font-size-base;
+  --ant-result-icon-font-size: 72px;
+  --ant-result-extra-margin: 24px 0 0 0;
+}
 
 // Image
 // ---
-@image-size-base: 48px;
-@image-font-size-base: 24px;
-@image-bg: #f5f5f5;
-@image-color: #fff;
-@image-mask-font-size: 16px;
-@image-preview-operation-size: 18px;
-@image-preview-operation-color: @text-color-dark;
-@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+:root {
+  --ant-image-size-base: 48px;
+  --ant-image-bg: #f5f5f5;
+  --ant-image-color: #fff;
+  --ant-image-mask-font-size: 16px;
+  --ant-image-preview-operation-size: 18px;
+  @image-preview-operation-color: @text-color-dark;
+  --ant-image-preview-operation-color: @image-preview-operation-color;
+  --ant-image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+}
 
-// Segmented
-// ---
-@segmented-bg: fade(@black, 4%);
-@segmented-hover-bg: fade(@black, 6%);
-@segmented-selected-bg: @white;
-@segmented-label-color: fade(@black, 65%);
-@segmented-label-hover-color: #262626;
+:root {
+  --ant-segmented-bg: fade(@black, 4%);
+  --ant-segmented-hover-bg: fade(@black, 6%);
+  --ant-segmented-selected-bg: @white;
+  --ant-segmented-label-color: fade(@black, 65%);
+  --ant-segmented-label-hover-color: #262626;
+}

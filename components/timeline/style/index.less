@@ -13,7 +13,7 @@
   &-item {
     position: relative;
     margin: 0;
-    padding-bottom: @timeline-item-padding-bottom;
+    padding-bottom: var(--ant-timeline-item-padding-bottom);
     font-size: @font-size-base;
     list-style: none;
 
@@ -22,7 +22,7 @@
       top: 10px;
       left: 4px;
       height: calc(100% - 10px);
-      border-left: @timeline-width solid @timeline-color;
+      border-left: var(--ant-timeline-width) solid var(--ant-timeline-color);
     }
 
     &-pending &-head {
@@ -38,8 +38,8 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: @timeline-dot-bg;
-      border: @timeline-dot-border-width solid transparent;
+      background-color: var(--ant-timeline-dot-bg);
+      border: var(--ant-timeline-dot-border-width) solid transparent;
       border-radius: 100px;
 
       &-blue {
@@ -136,7 +136,7 @@
       .@{timeline-prefix-cls}-item-tail,
       .@{timeline-prefix-cls}-item-head,
       .@{timeline-prefix-cls}-item-head-custom {
-        left: calc(100% - 4px - @timeline-width);
+        left: calc(100% - 4px - var(--ant-timeline-width));
       }
       .@{timeline-prefix-cls}-item-content {
         width: calc(100% - 18px);
@@ -147,7 +147,7 @@
   &&-pending &-item-last &-item-tail {
     display: block;
     height: calc(100% - 14px);
-    border-left: 2px dotted @timeline-color;
+    border-left: 2px dotted var(--ant-timeline-color);
   }
 
   &&-reverse &-item-last &-item-tail {
@@ -159,7 +159,7 @@
       top: 15px;
       display: block;
       height: calc(100% - 15px);
-      border-left: 2px dotted @timeline-color;
+      border-left: 2px dotted var(--ant-timeline-color);
     }
     .@{timeline-prefix-cls}-item-content {
       min-height: 48px;
