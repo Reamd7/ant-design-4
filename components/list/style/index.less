@@ -39,7 +39,7 @@
   }
 
   &-empty-text {
-    padding: @list-empty-text-padding;
+    padding: var(--ant-list-empty-text-padding);
     color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
@@ -65,7 +65,7 @@
       max-width: 100%;
 
       &-avatar {
-        margin-right: @list-item-meta-avatar-margin-right;
+        margin-right: var(--ant-list-item-meta-avatar-margin-right);
       }
 
       &-content {
@@ -92,7 +92,7 @@
 
       &-description {
         color: @text-color-secondary;
-        font-size: @list-item-meta-description-font-size;
+        font-size: var(--ant-list-item-meta-description-font-size);
         line-height: @line-height-base;
       }
     }
@@ -131,11 +131,11 @@
   }
 
   &-header {
-    background: @list-header-background;
+    background: var(--ant-list-header-background);
   }
 
   &-footer {
-    background: @list-footer-background;
+    background: var(--ant-list-footer-background);
   }
 
   &-header,
@@ -176,11 +176,11 @@
   }
 
   &-lg &-item {
-    padding: @list-item-padding-lg;
+    padding: var(--ant-list-item-padding-lg);
   }
 
   &-sm &-item {
-    padding: @list-item-padding-sm;
+    padding: var(--ant-list-item-padding-sm);
   }
 
   &-vertical &-item {
@@ -196,10 +196,10 @@
     }
 
     &-meta {
-      margin-bottom: @list-item-meta-margin-bottom;
+      margin-bottom: var(--ant-list-item-meta-margin-bottom);
 
       &-title {
-        margin-bottom: @list-item-meta-title-margin-bottom;
+        margin-bottom: var(--ant-list-item-meta-title-margin-bottom);
         color: @heading-color;
         font-size: @font-size-lg;
         line-height: 24px;
