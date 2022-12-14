@@ -1,13 +1,25 @@
 @import '../../style/themes/index.less';
 @import '../../style/mixins/index.less';
 
+// Notification
+// ---
+:root {
+  --ant-notification-bg: var(--ant-component-background);
+  --ant-notification-padding-vertical: 16px;
+  --ant-notification-padding-horizontal: 24px;
+  --ant-notification-width: 384px;
+  --ant-notification-margin-bottom: 16px;
+  --ant-notification-margin-edge: 24px;
+}
+
 .popover-customize-bg(@notification-prefix-cls, @popover-background);
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
-@notification-width: 384px;
-@notification-padding: @notification-padding-vertical @notification-padding-horizontal;
-@notification-margin-bottom: 16px;
-@notification-margin-edge: 24px;
+@notification-width: var(--ant-notification-width);
+@notification-padding: var(--ant-notification-padding-vertical)
+  var(--ant-notification-padding-horizontal);
+@notification-margin-bottom: var(--ant-notification-margin-bottom);
+@notification-margin-edge: var(--ant-notification-margin-edge);
 
 .@{notification-prefix-cls} {
   .reset-component();
@@ -35,7 +47,7 @@
     overflow: hidden;
     line-height: @line-height-base;
     word-wrap: break-word;
-    background: @notification-bg;
+    background: var(--ant-notification-bg);
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
 
@@ -60,7 +72,7 @@
       // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
       &-single-line-auto-margin {
         display: block;
-        width: ~'calc(@{notification-width} - @{notification-padding-horizontal} * 2 - 24px - 48px - 100%)';
+        width: ~'calc(@{notification-width} - var(--ant-notification-padding-horizontal) * 2 - 24px - 48px - 100%)';
         max-width: 4px;
         background-color: transparent;
         pointer-events: none;

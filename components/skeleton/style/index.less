@@ -10,6 +10,10 @@
 @skeleton-image-prefix-cls: ~'@{skeleton-prefix-cls}-image';
 @skeleton-block-radius: @border-radius-base;
 
+:root {
+  --ant-skeleton-image-size-base: var(--ant-image-size-base);
+}
+
 .@{skeleton-prefix-cls} {
   display: table;
   width: 100%;
@@ -188,16 +192,16 @@
   vertical-align: top;
   background: @skeleton-color;
 
-  .skeleton-element-image-size(@image-size-base*2);
+  .skeleton-element-image-size(calc(var(--ant-skeleton-image-size-base) * 2));
 
   &-path {
     fill: #bfbfbf;
   }
 
   &-svg {
-    .skeleton-element-image-size(@image-size-base);
-    max-width: @image-size-base * 4;
-    max-height: @image-size-base * 4;
+    .skeleton-element-image-size(var(--ant-skeleton-image-size-base));
+    max-width: calc(var(--ant-skeleton-image-size-base) * 4);
+    max-height: calc(var(--ant-skeleton-image-size-base) * 4);
   }
 }
 

@@ -6,12 +6,20 @@
 
 @segmented-container-padding: 2px;
 
+:root {
+  --ant-segmented-bg: fade(@black, 4%);
+  --ant-segmented-hover-bg: fade(@black, 6%);
+  --ant-segmented-selected-bg: @white;
+  --ant-segmented-label-color: fade(@black, 65%);
+  --ant-segmented-label-hover-color: #262626;
+}
+
 .@{segmented-prefix-cls} {
   .reset-component();
   display: inline-block;
   padding: @segmented-container-padding;
-  color: @segmented-label-color;
-  background-color: @segmented-bg;
+  color: var(--ant-segmented-label-color);
+  background-color: var(--ant-segmented-bg);
   border-radius: @border-radius-base;
   transition: all 0.3s @ease-in-out;
 
@@ -37,7 +45,7 @@
   &:not(&-disabled) {
     &:hover,
     &:focus {
-      background-color: @segmented-hover-bg;
+      background-color: var(--ant-segmented-hover-bg);
     }
   }
 
@@ -50,12 +58,12 @@
 
     &-selected {
       .segmented-item-selected();
-      color: @segmented-label-hover-color;
+      color: var(--ant-segmented-label-hover-color);
     }
 
     &:hover,
     &:focus {
-      color: @segmented-label-hover-color;
+      color: var(--ant-segmented-label-hover-color);
     }
 
     &-label {

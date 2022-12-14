@@ -1087,34 +1087,23 @@
 @steps-vertical-tail-width: 16px;
 @steps-vertical-tail-width-sm: 12px;
 
-// Notification
-// ---
-@notification-bg: var(--ant-component-background);
-@notification-padding-vertical: 16px;
-@notification-padding-horizontal: 24px;
-
 // Result
 // ---
-@result-title-font-size: 24px;
-@result-subtitle-font-size: @font-size-base;
-@result-icon-font-size: 72px;
-@result-extra-margin: 24px 0 0 0;
+:root {
+  --ant-result-title-font-size: 24px;
+  --ant-result-subtitle-font-size: @font-size-base;
+  --ant-result-icon-font-size: 72px;
+  --ant-result-extra-margin: 24px 0 0 0;
+}
 
 // Image
 // ---
-@image-size-base: 48px;
-@image-font-size-base: 24px;
-@image-bg: #f5f5f5;
-@image-color: #fff;
-@image-mask-font-size: 16px;
-@image-preview-operation-size: 18px;
-@image-preview-operation-color: @text-color-dark;
-@image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+:root {
+  --ant-image-size-base: 48px;
+  --ant-image-bg: #f5f5f5;
+  --ant-image-preview-operation-size: 18px;
 
-// Segmented
-// ---
-@segmented-bg: fade(@black, 4%);
-@segmented-hover-bg: fade(@black, 6%);
-@segmented-selected-bg: @white;
-@segmented-label-color: fade(@black, 65%);
-@segmented-label-hover-color: #262626;
+  @image-preview-operation-color: @text-color-dark;
+  --ant-image-preview-operation-color: @image-preview-operation-color;
+  --ant-image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+}
