@@ -431,22 +431,40 @@
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
-@zindex-badge: auto;
-@zindex-table-fixed: 2;
-@zindex-affix: 10;
-@zindex-back-top: 10;
-@zindex-picker-panel: 10;
-@zindex-popup-close: 10;
-@zindex-modal: 1000;
-@zindex-modal-mask: 1000;
-@zindex-message: 1010;
-@zindex-notification: 1010;
-@zindex-popover: 1030;
-@zindex-dropdown: 1050;
-@zindex-picker: 1050;
-@zindex-popoconfirm: 1060;
-@zindex-tooltip: 1070;
-@zindex-image: 1080;
+:root {
+  --@{ant-prefix}-zindex-badge: auto;
+  --@{ant-prefix}-zindex-table-fixed: 2;
+  --@{ant-prefix}-zindex-affix: 10;
+  --@{ant-prefix}-zindex-back-top: 10;
+  --@{ant-prefix}-zindex-picker-panel: 10;
+  --@{ant-prefix}-zindex-popup-close: 10;
+  --@{ant-prefix}-zindex-modal: 1000;
+  --@{ant-prefix}-zindex-modal-mask: 1000;
+  --@{ant-prefix}-zindex-message: 1010;
+  --@{ant-prefix}-zindex-notification: 1010;
+  --@{ant-prefix}-zindex-popover: 1030;
+  --@{ant-prefix}-zindex-dropdown: 1050;
+  --@{ant-prefix}-zindex-picker: 1050;
+  --@{ant-prefix}-zindex-popoconfirm: 1060;
+  --@{ant-prefix}-zindex-tooltip: 1070;
+  --@{ant-prefix}-zindex-image: 1080;
+}
+@zindex-badge: ~'var(--@{ant-prefix}-zindex-badge)';
+@zindex-table-fixed: ~'var(--@{ant-prefix}-zindex-table-fixed)';
+@zindex-affix: ~'var(--@{ant-prefix}-zindex-affix)';
+@zindex-back-top: ~'var(--@{ant-prefix}-zindex-back-top)';
+@zindex-picker-panel: ~'var(--@{ant-prefix}-zindex-picker-panel)'; // unused
+@zindex-popup-close: ~'var(--@{ant-prefix}-zindex-popup-close)';
+@zindex-modal: ~'var(--@{ant-prefix}-zindex-modal)';
+@zindex-modal-mask: ~'var(--@{ant-prefix}-zindex-modal-mask)';
+@zindex-message: ~'var(--@{ant-prefix}-zindex-message)';
+@zindex-notification: ~'var(--@{ant-prefix}-zindex-notification)';
+@zindex-popover: ~'var(--@{ant-prefix}-zindex-popover)';
+@zindex-dropdown: ~'var(--@{ant-prefix}-zindex-dropdown)';
+@zindex-picker: ~'var(--@{ant-prefix}-zindex-picker)';
+@zindex-popoconfirm: ~'var(--@{ant-prefix}-zindex-popoconfirm)';
+@zindex-tooltip: ~'var(--@{ant-prefix}-zindex-tooltip)';
+@zindex-image: ~'var(--@{ant-prefix}-zindex-image)';
 
 // Animation
 @animation-duration-slow: 0.3s; // Modal
