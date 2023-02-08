@@ -1,12 +1,12 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 @import '../../input/style/mixin';
 @import './single';
 @import './multiple';
 @import './status';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
-@select-height-without-border: @input-height-base - 2 * @border-width-base;
+@select-height-without-border: calc(@input-height-base - 2 * @border-width-base);
 @select-dropdown-edge-child-vertical-padding: @dropdown-edge-child-vertical-padding;
 
 .select-selector() {
@@ -120,11 +120,11 @@
     .iconfont-mixin();
     position: absolute;
     top: 50%;
-    right: @control-padding-horizontal - 1px;
+    right: calc(@control-padding-horizontal - 1px);
     display: flex;
     align-items: center;
     height: @font-size-sm;
-    margin-top: (-@font-size-sm / 2);
+    margin-top: calc(@font-size-sm / -2);
     color: @disabled-color;
     font-size: @font-size-sm;
     line-height: 1;
@@ -157,12 +157,12 @@
   &-clear {
     position: absolute;
     top: 50%;
-    right: @control-padding-horizontal - 1px;
+    right: calc(@control-padding-horizontal - 1px);
     z-index: 1;
     display: inline-block;
     width: @font-size-sm;
     height: @font-size-sm;
-    margin-top: (-@font-size-sm / 2);
+    margin-top: calc(@font-size-sm / -2);
     color: @disabled-color;
     font-size: @font-size-sm;
     font-style: normal;
@@ -303,7 +303,7 @@
       }
 
       &-grouped {
-        padding-left: @control-padding-horizontal * 2;
+        padding-left: calc(@control-padding-horizontal * 2);
       }
     }
   }

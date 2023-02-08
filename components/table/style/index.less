@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 @import './size';
 @import './bordered';
 
@@ -10,7 +10,7 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
-@table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
+@table-sticky-scroll-bar-active-bg: @table-sticky-scroll-bar-bg__fade_80;
 @table-filter-dropdown-max-height: 264px;
 @table-expand-column-width: 48px;
 
@@ -99,7 +99,9 @@
           text-align: center;
         }
 
-        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before {
+        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(
+            .@{table-prefix-cls}-row-expand-icon-cell
+          ):not([colspan])::before {
           position: absolute;
           top: 50%;
           right: 0;
@@ -131,8 +133,9 @@
         > .@{table-prefix-cls}-wrapper:only-child,
         > .@{table-prefix-cls}-expanded-row-fixed > .@{table-prefix-cls}-wrapper:only-child {
           .@{table-prefix-cls} {
-            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-expand-column-width -
-                  @table-padding-horizontal);
+            margin: calc(0px - @table-padding-vertical) calc(0px - @table-padding-horizontal)
+              calc(0px - @table-padding-vertical)
+              calc(@table-expand-column-width - @table-padding-horizontal);
 
             &-tbody > tr:last-child > td {
               border-bottom: 0;
@@ -173,7 +176,7 @@
     background: @table-bg;
 
     div& {
-      box-shadow: 0 -@border-width-base 0 @table-border-color;
+      box-shadow: 0 calc(0px - @border-width-base) 0 @table-border-color;
     }
 
     > tr {
@@ -316,7 +319,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin: -4px (-@table-padding-horizontal / 2) -4px 4px;
+    margin: -4px calc(@table-padding-horizontal / -2) -4px 4px;
     padding: 0 4px;
     color: @table-header-icon-color;
     font-size: @font-size-sm;
@@ -428,7 +431,7 @@
   }
 
   &-bordered &-selection-col {
-    width: @table-selection-column-width + 18px;
+    width: calc(@table-selection-column-width + 18px);
   }
 
   table tr th&-selection-column,
@@ -462,7 +465,7 @@
       cursor: pointer;
       transition: all 0.3s;
       margin-inline-start: 100%;
-      padding-inline-start: (@table-padding-horizontal / 4);
+      padding-inline-start: calc(@table-padding-horizontal / 4);
 
       .@{iconfont-css-prefix} {
         color: @table-header-icon-color;
@@ -495,6 +498,7 @@
     height: 1px;
   }
 
+  // 用于 可折叠表格
   &-row-expand-icon {
     .operation-unit();
     position: relative;
@@ -504,16 +508,17 @@
     height: @expand-icon-size;
     padding: 0;
     color: inherit;
-    line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
-      3;
+    // line-height: ceil(((@content-height-sm - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3; // !! TODO
+    line-height: @content-height-sm;
     background: @table-expand-icon-bg;
     border: @border-width-base @border-style-base @table-border-color;
     border-radius: @border-radius-base;
-    transform: scale((unit(@checkbox-size) / unit(@expand-icon-size)));
+    // !! TODO 确定 transform 的意义, 为什么这里 checkbox-size 和 expand-icon-size 有关系
+    // transform: scale((unit(@checkbox-size) / unit(@expand-icon-size)));
     transition: all 0.3s;
     user-select: none;
-    @expand-icon-size: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 +
-      @border-width-base * 3;
+    // @expand-icon-size: ceil(((@content-height-sm - @border-width-base * 3) / 2)) * 2 + @border-width-base * 3; // !! TODO
+    @expand-icon-size: @content-height-sm;
 
     &:focus,
     &:hover,
@@ -530,7 +535,8 @@
     }
 
     &::before {
-      top: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
+      // top: ceil(((@content-height-sm - @border-width-base * 3) / 2)); // !! TODO
+      top: calc(((@content-height-sm - @border-width-base * 3) / 2)); // !! TODO
       right: 3px;
       left: 3px;
       height: @border-width-base;
@@ -539,7 +545,8 @@
     &::after {
       top: 3px;
       bottom: 3px;
-      left: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
+      left: calc(((@content-height-sm - @border-width-base * 3) / 2)); // !! TODO
+      // left: ceil(((@content-height-sm - @border-width-base * 3) / 2)); // !! TODO
       width: @border-width-base;
       transform: rotate(90deg);
     }
@@ -565,8 +572,8 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
-      margin-top: ((@font-size-base * @line-height-base - @border-width-base * 3) / 2) -
-        ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
+      // margin-top: ((@content-height-base - @border-width-base * 3) / 2) - ceil(((@content-height-sm - @border-width-base * 3) / 2)); // !! TODO
+      margin-top: calc(@content-height-base - @content-height-sm);
       margin-right: @padding-xs;
     }
   }
@@ -593,7 +600,7 @@
   // With fixed
   .@{table-prefix-cls}-expanded-row-fixed {
     position: relative;
-    margin: -@table-padding-vertical -@table-padding-horizontal;
+    margin: calc(0px - @table-padding-vertical) calc(0px - @table-padding-horizontal);
     padding: @table-padding-vertical @table-padding-horizontal;
   }
 
@@ -676,13 +683,13 @@
       position: relative;
 
       &::before {
-        box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+        box-shadow: inset 10px 0 8px -8px ~'var(--@{ant-prefix}-shadow-color__darken_5)';
       }
     }
 
     .@{table-prefix-cls}-cell-fix-left-first::after,
     .@{table-prefix-cls}-cell-fix-left-last::after {
-      box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      box-shadow: inset 10px 0 8px -8px ~'var(--@{ant-prefix}-shadow-color__darken_5)';
     }
 
     .@{table-prefix-cls}-cell-fix-left-last::before {
@@ -695,13 +702,13 @@
       position: relative;
 
       &::after {
-        box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+        box-shadow: inset -10px 0 8px -8px ~'var(--@{ant-prefix}-shadow-color__darken_5)';
       }
     }
 
     .@{table-prefix-cls}-cell-fix-right-first::after,
     .@{table-prefix-cls}-cell-fix-right-last::after {
-      box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+      box-shadow: inset -10px 0 8px -8px ~'var(--@{ant-prefix}-shadow-color__darken_5)';
     }
   }
 
@@ -718,7 +725,7 @@
       z-index: @table-sticky-zindex;
       display: flex;
       align-items: center;
-      background: lighten(@table-border-color, 80%);
+      background: @table-border-color__lighten_80;
       border-top: 1px solid @table-border-color;
       opacity: 0.6;
 

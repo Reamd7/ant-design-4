@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @radio-prefix-cls: ~'@{ant-prefix}-radio';
 @radio-group-prefix-cls: ~'@{radio-prefix-cls}-group';
@@ -97,8 +97,8 @@
       display: block;
       width: @radio-size;
       height: @radio-size;
-      margin-top: -(@radio-size / 2);
-      margin-left: -(@radio-size / 2);
+      margin-top: calc(@radio-size / -2);
+      margin-left: calc(@radio-size / -2);
       background-color: @radio-dot-color;
       border-top: 0;
       border-left: 0;
@@ -147,7 +147,7 @@
     border-color: @radio-dot-color;
 
     &::after {
-      transform: scale((unit(@radio-dot-size) / unit(@radio-size)));
+      transform: scale(@radio-dot-size);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
@@ -189,12 +189,12 @@ span.@{radio-prefix-cls} + * {
   padding: 0 @radio-button-padding-horizontal;
   color: @radio-button-color;
   font-size: @font-size-base;
-  line-height: @btn-height-base - 2px;
+  line-height: calc(@btn-height-base - 2px);
   background: @radio-button-bg;
   border: @border-width-base @border-style-base @border-color-base;
   // strange align fix for chrome but works
   // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
-  border-top-width: @border-width-base + 0.02px;
+  border-top-width: calc(@border-width-base + 0.02px);
   border-left-width: 0;
   cursor: pointer;
   transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -215,19 +215,19 @@ span.@{radio-prefix-cls} + * {
   .@{radio-group-prefix-cls}-large & {
     height: @input-height-lg;
     font-size: @font-size-lg;
-    line-height: @input-height-lg - 2px;
+    line-height: calc(@input-height-lg - 2px);
   }
 
   .@{radio-group-prefix-cls}-small & {
     height: @input-height-sm;
-    padding: 0 @control-padding-horizontal-sm - 1px;
-    line-height: @input-height-sm - 2px;
+    padding: 0 calc(@control-padding-horizontal-sm - 1px);
+    line-height: calc(@input-height-sm - 2px);
   }
 
   &:not(:first-child) {
     &::before {
       position: absolute;
-      top: @border-width-base * -1;
+      top: calc(@border-width-base * -1);
       left: -1px;
       display: block;
       box-sizing: content-box;

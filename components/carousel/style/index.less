@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @carousel-prefix-cls: ~'@{ant-prefix}-carousel';
 @carousel-dot-margin: 4px;
@@ -232,10 +232,10 @@
 
         &::after {
           position: absolute;
-          top: -@carousel-dot-margin;
-          right: -@carousel-dot-margin;
-          bottom: -@carousel-dot-margin;
-          left: -@carousel-dot-margin;
+          top: calc(0px - @carousel-dot-margin);
+          right: calc(0px - @carousel-dot-margin);
+          bottom: calc(0px - @carousel-dot-margin);
+          left: calc(0px - @carousel-dot-margin);
           content: '';
         }
       }

@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @skeleton-prefix-cls: ~'@{ant-prefix}-skeleton';
 @skeleton-avatar-prefix-cls: ~'@{skeleton-prefix-cls}-avatar';
@@ -188,7 +188,7 @@
   vertical-align: top;
   background: @skeleton-color;
 
-  .skeleton-element-image-size(@image-size-base*2);
+  .skeleton-element-image-size(calc(@image-size-base*2));
 
   &-path {
     fill: #bfbfbf;
@@ -196,8 +196,8 @@
 
   &-svg {
     .skeleton-element-image-size(@image-size-base);
-    max-width: @image-size-base * 4;
-    max-height: @image-size-base * 4;
+    max-width: calc(@image-size-base * 4);
+    max-height: calc(@image-size-base * 4);
   }
 }
 
@@ -211,8 +211,8 @@
 }
 
 .skeleton-element-button-size(@size) {
-  width: @size * 2;
-  min-width: @size * 2;
+  width: calc(@size * 2);
+  min-width: calc(@size * 2);
   .skeleton-element-common-size(@size);
 
   &.@{skeleton-button-prefix-cls}-square {
@@ -232,8 +232,8 @@
 }
 
 .skeleton-element-input-size(@size) {
-  width: @size * 5;
-  min-width: @size * 5;
+  width: calc(@size * 5);
+  min-width: calc(@size * 5);
   .skeleton-element-common-size(@size);
 }
 

@@ -33,10 +33,10 @@
     > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
-    left: @steps-vertical-tail-width - 1; // line width
+    left: calc(@steps-vertical-tail-width - 1px); // line width
     width: 1px;
     height: 100%;
-    padding: @steps-icon-size + 6px 0 6px;
+    padding: calc(@steps-icon-size + 6px) 0 6px;
 
     &::after {
       width: 1px;
@@ -63,8 +63,8 @@
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;
-      left: @steps-vertical-tail-width-sm - 1; // line width
-      padding: @steps-small-icon-size + 6px 0 6px;
+      left: calc(@steps-vertical-tail-width-sm - 1px); // line width
+      padding: calc(@steps-small-icon-size + 6px) 0 6px;
     }
     .@{steps-prefix-cls}-item-title {
       line-height: @steps-small-icon-size;

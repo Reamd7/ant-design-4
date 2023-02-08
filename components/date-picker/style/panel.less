@@ -3,7 +3,7 @@
 .@{picker-prefix-cls} {
   @picker-arrow-size: 7px;
   @picker-year-month-cell-width: 60px;
-  @picker-panel-width: @picker-panel-cell-width * 7 + @padding-sm * 2 + 4;
+  @picker-panel-width: calc(@picker-panel-cell-width * 7 + @padding-sm * 2 + 4px);
 
   &-panel {
     display: inline-flex;
@@ -179,7 +179,9 @@
 
     // >>> Hover
     &:hover:not(&-in-view),
-    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
+    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(
+        &-range-hover-end
+      ) {
       .@{cellClassName} {
         background: @picker-basic-cell-hover-color;
       }
@@ -303,13 +305,13 @@
     .@{picker-prefix-cls}-date-panel
       &-in-view&-in-range&-range-hover-start
       .@{cellClassName}::after {
-      right: -5px - @border-width-base;
+      right: calc(-5px - @border-width-base);
       left: 0;
     }
 
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: 0;
-      left: -5px - @border-width-base;
+      left: calc(-5px - @border-width-base);
     }
 
     // Hover with range start & end
@@ -381,7 +383,7 @@
   &-quarter-panel,
   &-month-panel {
     .@{picker-prefix-cls}-content {
-      height: @picker-panel-without-time-cell-height * 4;
+      height: calc(@picker-panel-without-time-cell-height * 4);
     }
 
     .@{picker-cell-inner-cls} {
@@ -399,7 +401,7 @@
   &-footer {
     width: min-content;
     min-width: 100%;
-    line-height: @picker-text-height - 2 * @border-width-base;
+    line-height: calc(@picker-text-height - 2 * @border-width-base);
     text-align: center;
     border-bottom: @border-width-base @border-style-base transparent;
 
@@ -409,7 +411,7 @@
 
     &-extra {
       padding: 0 @padding-sm;
-      line-height: @picker-text-height - 2 * @border-width-base;
+      line-height: calc(@picker-text-height - 2 * @border-width-base);
       text-align: left;
 
       &:not(:last-child) {
@@ -446,7 +448,7 @@
   // ===================== Decade Panel =====================
   &-decade-panel {
     .@{picker-cell-inner-cls} {
-      padding: 0 (@padding-xs / 2);
+      padding: 0 calc(@padding-xs / 2);
     }
 
     .@{picker-prefix-cls}-cell::before {
@@ -458,7 +460,7 @@
   &-year-panel,
   &-quarter-panel,
   &-month-panel {
-    @hover-cell-fixed-distance: (
+    @hover-cell-fixed-distance: calc(
       (((@picker-panel-width - @padding-xs * 2) / 3) - @picker-year-month-cell-width) / 2
     );
 
@@ -523,7 +525,7 @@
         background: @primary-color;
 
         &.@{picker-prefix-cls}-cell-week {
-          color: fade(@text-color-inverse, 50%);
+          color: ~'var(--@{ant-prefix}-text-color-inverse__fade_50)';
         }
 
         &.@{picker-prefix-cls}-cell-today .@{picker-cell-inner-cls}::before {
@@ -544,7 +546,7 @@
     }
 
     .@{picker-prefix-cls}-content {
-      width: @picker-panel-cell-width * 7;
+      width: calc(@picker-panel-cell-width * 7);
 
       th {
         width: @picker-panel-cell-width;
@@ -601,11 +603,13 @@
 
       &::after {
         display: block;
-        height: @picker-time-panel-column-height - @picker-time-panel-cell-height;
+        height: calc(@picker-time-panel-column-height - @picker-time-panel-cell-height);
         content: '';
         .@{picker-prefix-cls}-datetime-panel & {
-          height: @picker-time-panel-column-height - @picker-time-panel-cell-height + 2 *
-            @border-width-base;
+          height: calc(
+            @picker-time-panel-column-height - @picker-time-panel-cell-height + 2 *
+              @border-width-base
+          );
         }
       }
 
@@ -631,7 +635,7 @@
             width: 100%;
             height: @picker-time-panel-cell-height;
             margin: 0;
-            padding: 0 0 0 ((@picker-time-panel-column-width - 28px) / 2);
+            padding: 0 0 0 calc((@picker-time-panel-column-width - 28px) / 2);
             color: @text-color;
             line-height: @picker-time-panel-cell-height;
             border-radius: 0;

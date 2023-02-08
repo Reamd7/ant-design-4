@@ -1,7 +1,8 @@
-@import (reference) '../../style/themes/index';
+@import (reference) '../../style/themes/index.less';
 @select-prefix-cls: ~'@{ant-prefix}-select';
 
-@selection-item-padding: ceil(@font-size-base * 1.25);
+// @selection-item-padding: ceil(@font-size-base * 1.25); // !! TODO
+@selection-item-padding: calc(@font-size-base * 1.25);
 
 .@{select-prefix-cls}-single {
   // ========================= Selector =========================
@@ -52,7 +53,7 @@
 
   // With arrow should provides `padding-right` to show the arrow
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
-    right: @input-padding-horizontal-base + @font-size-base;
+    right: calc(@input-padding-horizontal-base + @font-size-base);
   }
 
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
@@ -122,14 +123,14 @@
         &::after,
         .@{select-prefix-cls}-selection-item,
         .@{select-prefix-cls}-selection-placeholder {
-          line-height: @input-height - 2 * @border-width-base;
+          line-height: calc(@input-height - 2 * @border-width-base);
         }
       }
 
       // Not customize
       &:not(.@{select-prefix-cls}-customize-input) {
         .@{select-prefix-cls}-selection-search-input {
-          height: @input-height - 2 * @border-width-base;
+          height: calc(@input-height - 2 * @border-width-base);
         }
       }
     }
@@ -152,12 +153,12 @@
 
       // With arrow should provides `padding-right` to show the arrow
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
-        right: @input-padding-horizontal-sm + @font-size-base * 1.5;
+        right: calc(@input-padding-horizontal-sm + @font-size-base * 1.5);
       }
 
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
-        padding-right: @font-size-base * 1.5;
+        padding-right: calc(@font-size-base * 1.5);
       }
     }
   }

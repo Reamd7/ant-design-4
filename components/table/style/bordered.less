@@ -1,5 +1,5 @@
 @import './size';
-@import (reference) '../../style/themes/index';
+@import (reference) '../../style/themes/index.less';
 @table-prefix-cls: ~'@{ant-prefix}-table';
 
 @table-border: @border-width-base @border-style-base @table-border-color;
@@ -53,7 +53,8 @@
       // ========================== Expandable ==========================
       > table > tbody > tr > td {
         > .@{table-prefix-cls}-expanded-row-fixed {
-          margin: -@table-padding-vertical (-@table-padding-horizontal - @border-width-base);
+          margin: calc(0px - @table-padding-vertical)
+            calc(0px - @table-padding-horizontal - @border-width-base);
 
           &::after {
             position: absolute;
@@ -95,7 +96,8 @@
       > .@{table-prefix-cls}-body {
         > table > tbody > tr > td {
           > .@{table-prefix-cls}-expanded-row-fixed {
-            margin: -@table-padding-vertical-md (-@table-padding-horizontal-md - @border-width-base);
+            margin: calc(0px - @table-padding-vertical-md)
+              calc(0px - @table-padding-horizontal-md - @border-width-base);
           }
         }
       }
@@ -108,7 +110,8 @@
       > .@{table-prefix-cls}-body {
         > table > tbody > tr > td {
           > .@{table-prefix-cls}-expanded-row-fixed {
-            margin: -@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base);
+            margin: calc(0px - @table-padding-vertical-sm)
+              calc(0px - @table-padding-horizontal-sm - @border-width-base);
           }
         }
       }

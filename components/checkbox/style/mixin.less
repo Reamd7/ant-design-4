@@ -1,4 +1,4 @@
-@import '../../style/mixins/index';
+@import (reference) '../../style/mixins/index.less';
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-checkbox') {
   @checkbox-inner-prefix-cls: ~'@{checkbox-prefix-cls}-inner';
@@ -55,8 +55,8 @@
       transition: all 0.3s;
 
       &::after {
-        @check-width: (@checkbox-size / 14) * 5px;
-        @check-height: (@checkbox-size / 14) * 8px;
+        @check-width: calc(@checkbox-size / (14 / 5));
+        @check-height: calc(@checkbox-size / (14 / 8));
 
         position: absolute;
         top: 50%;
@@ -207,8 +207,8 @@
       border-color: @border-color-base;
     }
     .@{checkbox-inner-prefix-cls}::after {
-      @indeterminate-width: @checkbox-size - 8px;
-      @indeterminate-height: @checkbox-size - 8px;
+      @indeterminate-width: calc(@checkbox-size - 8px);
+      @indeterminate-height: calc(@checkbox-size - 8px);
 
       top: 50%;
       left: 50%;

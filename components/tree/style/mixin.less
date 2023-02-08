@@ -1,9 +1,9 @@
-@import '../../style/mixins/index';
+@import (reference) '../../style/mixins/index.less';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
-@tree-node-padding: (@padding-xs / 2);
+@tree-node-padding: calc(@padding-xs / 2);
 // @deprecated: kept for customization usages, recommend using @tree-node-highlight-color instead.
 @tree-node-hightlight-color: inherit;
 @tree-node-highlight-color: @tree-node-hightlight-color;
@@ -199,7 +199,7 @@
         position: absolute;
         top: 0;
         right: 12px;
-        bottom: -@tree-node-padding;
+        bottom: calc(0px - @tree-node-padding);
         margin-left: -1px;
         border-right: 1px solid @normal-color;
         content: ' ';
@@ -207,8 +207,8 @@
 
       &::after {
         position: absolute;
-        width: @tree-title-height - 14px;
-        height: @tree-title-height - 10px;
+        width: calc(@tree-title-height - 14px);
+        height: calc(@tree-title-height - 10px);
         border-bottom: 1px solid @normal-color;
         content: ' ';
       }
@@ -218,7 +218,7 @@
   // >>> Checkbox
   &-checkbox {
     top: initial;
-    margin: ((@tree-title-height - @checkbox-size) / 2) 8px 0 0;
+    margin: calc((@tree-title-height - @checkbox-size) / 2) 8px 0 0;
   }
 
   // >>> Title
@@ -288,8 +288,8 @@
         &::before {
           position: absolute;
           top: 0;
-          right: (@tree-title-height / 2);
-          bottom: -@tree-node-padding;
+          right: calc(@tree-title-height / 2);
+          bottom: calc(0px - @tree-node-padding);
           border-right: 1px solid @border-color-base;
           content: '';
         }
@@ -319,7 +319,7 @@
         &::before {
           top: auto !important;
           bottom: auto !important;
-          height: @tree-title-height - 10px !important;
+          height: calc(@tree-title-height - 10px) !important;
         }
       }
     }

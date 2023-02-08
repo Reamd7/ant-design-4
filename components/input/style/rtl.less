@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 //== Style for input-group: input with label, with button or dropdown...
 .@{ant-prefix}-input-group {
@@ -131,7 +131,7 @@
     & > *:not(:last-child) {
       .@{inputClass}-group-rtl& {
         margin-right: 0;
-        margin-left: -@border-width-base;
+        margin-left: calc(0px - @border-width-base);
         border-left-width: @border-width-base;
       }
     }

@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @image-prefix-cls: ~'@{ant-prefix}-image';
 @image-preview-prefix-cls: ~'@{image-prefix-cls}-preview';
@@ -109,7 +109,7 @@
       position: fixed;
       top: 0;
       right: 0;
-      z-index: @zindex-image + 1;
+      z-index: calc(@zindex-image + 1);
       width: 100%;
     }
 
@@ -120,7 +120,7 @@
       align-items: center;
       color: @image-preview-operation-color;
       list-style: none;
-      background: fade(@modal-mask-bg, 10%);
+      background: @modal-mask-bg__fade_10;
       pointer-events: auto;
 
       &-operation {
@@ -130,7 +130,7 @@
         transition: all 0.3s;
 
         &:hover {
-          background: fade(@modal-mask-bg, 20%);
+          background: @modal-mask-bg__fade_20;
         }
 
         &-disabled {
@@ -159,14 +159,14 @@
       position: fixed;
       top: 50%;
       right: 8px;
-      z-index: @zindex-image + 1;
+      z-index: calc(@zindex-image + 1);
       display: flex;
       align-items: center;
       justify-content: center;
       width: 44px;
       height: 44px;
       color: @image-preview-operation-color;
-      background: fade(@modal-mask-bg, 10%);
+      background: @modal-mask-bg__fade_10;
       border-radius: 50%;
       transform: translateY(-50%);
       cursor: pointer;
@@ -174,13 +174,13 @@
       pointer-events: auto;
 
       &:hover {
-        background: fade(@modal-mask-bg, 20%);
+        background: @modal-mask-bg__fade_20;
       }
 
       &-disabled,
       &-disabled:hover {
         color: @image-preview-operation-disabled-color;
-        background: fade(@modal-mask-bg, 10%);
+        background: @modal-mask-bg__fade_10;
         cursor: not-allowed;
         > .@{iconfont-css-prefix} {
           cursor: not-allowed;

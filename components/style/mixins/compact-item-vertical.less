@@ -17,7 +17,7 @@
 .compact-item-vertical-border(@prefix-cls) {
   // border collapse
   &-item:not(&-last-item) {
-    margin-bottom: -@border-width-base;
+    margin-bottom: calc(0px - @border-width-base);
   }
 
   &-item {

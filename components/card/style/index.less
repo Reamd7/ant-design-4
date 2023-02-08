@@ -1,12 +1,12 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-hoverable-hover-border: transparent;
 @card-action-icon-size: 16px;
 
-@gradient-min: fade(@card-skeleton-bg, 20%);
-@gradient-max: fade(@card-skeleton-bg, 40%);
+@gradient-min: @card-skeleton-bg-gradient-min;
+@gradient-max: @card-skeleton-bg-gradient-max;
 
 .@{card-prefix-cls} {
   .reset-component();
@@ -128,7 +128,7 @@
   }
 
   &-contain-tabs > &-head &-head-title {
-    min-height: @card-head-height - @card-head-padding;
+    min-height: calc(@card-head-height - @card-head-padding);
     padding-bottom: 0;
   }
 
@@ -225,7 +225,7 @@
   }
 
   &-type-inner &-extra {
-    padding: @card-inner-head-padding + 1.5px 0;
+    padding: calc(@card-inner-head-padding + 1.5px) 0;
   }
 
   &-meta {

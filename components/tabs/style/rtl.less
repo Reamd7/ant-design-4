@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
@@ -22,7 +22,7 @@
 
         .@{tab-prefix-cls}-tab-remove {
           margin-right: @margin-xs;
-          margin-left: -@margin-xss;
+          margin-left: calc(0px - @margin-xss);
 
           .@{iconfont-css-prefix} {
             margin: 0;

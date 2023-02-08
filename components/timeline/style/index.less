@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @timeline-prefix-cls: ~'@{ant-prefix}-timeline';
 
@@ -80,8 +80,8 @@
 
     &-content {
       position: relative;
-      top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
-      margin: 0 0 0 @margin-lg + 2px;
+      top: calc(1px - (@content-height-base - @font-size-base));
+      margin: 0 0 0 calc(@margin-lg + 2px);
       word-break: break-word;
     }
 
@@ -168,7 +168,7 @@
   &.@{timeline-prefix-cls}-label {
     .@{timeline-prefix-cls}-item-label {
       position: absolute;
-      top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
+      top: calc(1px - (@content-height-base - @font-size-base));
       width: calc(50% - 12px);
       text-align: right;
     }

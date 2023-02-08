@@ -5,7 +5,7 @@
 
   &-suffix {
     .@{picker-prefix-cls}-rtl & {
-      margin-right: (@padding-xs / 2);
+      margin-right: calc(@padding-xs / 2);
       margin-left: 0;
     }
   }
@@ -142,13 +142,13 @@
       .@{cellClassName}::after {
       .@{picker-prefix-cls}-panel-rtl & {
         right: 0;
-        left: -5px - @border-width-base;
+        left: calc(0px - 5px - @border-width-base);
       }
     }
 
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       .@{picker-prefix-cls}-panel-rtl & {
-        right: -5px - @border-width-base;
+        right: calc(0px - 5px - @border-width-base);
         left: 0;
       }
     }

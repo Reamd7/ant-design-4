@@ -62,12 +62,12 @@
   & when (@bordered-item-cls = null) {
     // border collapse
     &-item:not(&-last-item):not(&-item-rtl) {
-      margin-right: -@border-width-base;
+      margin-right: calc(0px - @border-width-base);
     }
 
     // rtl border collapse
     &-item:not(&-last-item)&-item-rtl {
-      margin-left: -@border-width-base;
+      margin-left: calc(0px - @border-width-base);
     }
 
     &-item {
@@ -93,11 +93,11 @@
   & when (not (@bordered-item-cls = null)) {
     // border collapse
     &-item:not(&-last-item) {
-      margin-right: -@border-width-base;
+      margin-right: calc(0px - @border-width-base);
 
       &.@{prefix-cls}-compact-item-rtl {
         margin-right: 0;
-        margin-left: -@border-width-base;
+        margin-left: calc(0px - @border-width-base);
       }
     }
 

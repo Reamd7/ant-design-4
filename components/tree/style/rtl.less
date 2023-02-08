@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 @import '../../checkbox/style/mixin';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
@@ -46,7 +46,7 @@
         &::before {
           .@{tree-prefix-cls}-rtl& {
             right: auto;
-            left: -(@tree-title-height / 2) - 1px;
+            left: calc((@tree-title-height / -2) - 1px);
             border-right: none;
             border-left: 1px solid @border-color-base;
           }
@@ -57,7 +57,7 @@
   // >>> Checkbox
   &-checkbox {
     .@{tree-prefix-cls}-rtl & {
-      margin: ((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
+      margin: calc((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
     }
   }
 }
@@ -66,7 +66,7 @@
   // >>> Checkbox
   &-checkbox {
     .@{tree-prefix-cls}-select-dropdown-rtl & {
-      margin: ((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
+      margin: calc((@tree-title-height - @checkbox-size) / 2) 0 0 8px;
     }
   }
 }

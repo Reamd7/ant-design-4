@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 @import './mixins.less';
 
 @segmented-prefix-cls: ~'@{ant-prefix}-segmented';
@@ -59,15 +59,15 @@
     }
 
     &-label {
-      min-height: @input-height-base - @segmented-container-padding * 2;
+      min-height: calc(@input-height-base - @segmented-container-padding * 2);
       padding: 0 @input-padding-horizontal-base;
-      line-height: @input-height-base - @segmented-container-padding * 2;
+      line-height: calc(@input-height-base - @segmented-container-padding * 2);
       .segmented-text-ellipsis();
     }
 
     // syntactic sugar to add `icon` for Segmented Item
     &-icon + * {
-      margin-left: (@margin-sm / 2);
+      margin-left: calc(@margin-sm / 2);
     }
 
     &-input {
@@ -83,16 +83,16 @@
 
   // size styles
   &&-lg &-item-label {
-    min-height: @input-height-lg - @segmented-container-padding * 2;
+    min-height: calc(@input-height-lg - @segmented-container-padding * 2);
     padding: 0 @input-padding-horizontal-lg;
     font-size: @font-size-lg;
-    line-height: @input-height-lg - @segmented-container-padding * 2;
+    line-height: calc(@input-height-lg - @segmented-container-padding * 2);
   }
 
   &&-sm &-item-label {
-    min-height: @input-height-sm - @segmented-container-padding * 2;
+    min-height: calc(@input-height-sm - @segmented-container-padding * 2);
     padding: 0 @input-padding-horizontal-sm;
-    line-height: @input-height-sm - @segmented-container-padding * 2;
+    line-height: calc(@input-height-sm - @segmented-container-padding * 2);
   }
 
   // disabled styles

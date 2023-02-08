@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 @import '../../input/style/mixin';
 @import '../../checkbox/style/mixin';
 
@@ -33,7 +33,7 @@
     min-width: 111px;
     height: 180px;
     margin: 0;
-    margin: -@dropdown-edge-child-vertical-padding 0;
+    margin: calc(0px - @dropdown-edge-child-vertical-padding) 0;
     padding: @cascader-dropdown-edge-child-vertical-padding 0;
     overflow: auto;
     vertical-align: top;

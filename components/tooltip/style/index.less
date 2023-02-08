@@ -1,12 +1,11 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 
 @tooltip-arrow-shadow-width: 3px;
 
-@tooltip-arrow-rotate-width: sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
-  @tooltip-arrow-shadow-width * 2;
+@tooltip-arrow-rotate-width: @tooltip-arrow-width * sqrt(2) + @tooltip-arrow-shadow-width * 2;
 
 @tooltip-arrow-offset-vertical: 5px; // 8 - 3px
 @tooltip-arrow-offset-horizontal: 13px; // 16 - 3px
@@ -84,7 +83,7 @@
       // Use linear gradient to mix box shadow of tooltip inner
       --antd-arrow-background-color: linear-gradient(
         to right bottom,
-        fadeout(@tooltip-bg, 10%),
+        @tooltip-bg__fadeout_10,
         @tooltip-bg
       );
 

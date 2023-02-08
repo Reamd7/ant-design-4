@@ -1,4 +1,4 @@
-@import '../../style/themes/index';
+@import (reference) '../../style/themes/index.less';
 @tab-prefix-cls: ~'@{ant-prefix}-tabs';
 
 .@{tab-prefix-cls} {
@@ -38,12 +38,12 @@
 
         &::before {
           left: 0;
-          box-shadow: inset 10px 0 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset 10px 0 8px -8px ~'var(--@{ant-prefix}-shadow-color__fade_8)';
         }
 
         &::after {
           right: 0;
-          box-shadow: inset -10px 0 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset -10px 0 8px -8px ~'var(--@{ant-prefix}-shadow-color__fade_8)';
         }
 
         &.@{tab-prefix-cls}-nav-wrap-ping-left::before {
@@ -122,12 +122,12 @@
 
         &::before {
           top: 0;
-          box-shadow: inset 0 10px 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset 0 10px 8px -8px ~'var(--@{ant-prefix}-shadow-color__fade_8)';
         }
 
         &::after {
           bottom: 0;
-          box-shadow: inset 0 -10px 8px -8px fade(@shadow-color, 8%);
+          box-shadow: inset 0 -10px 8px -8px ~'var(--@{ant-prefix}-shadow-color__fade_8)';
         }
 
         &.@{tab-prefix-cls}-nav-wrap-ping-top::before {
@@ -165,7 +165,7 @@
 
     > .@{tab-prefix-cls}-content-holder,
     > div > .@{tab-prefix-cls}-content-holder {
-      margin-left: -@border-width-base;
+      margin-left: calc(0px - @border-width-base);
       border-left: @border-width-base @border-style-base @border-color-split;
 
       > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {
@@ -187,7 +187,7 @@
     > .@{tab-prefix-cls}-content-holder,
     > div > .@{tab-prefix-cls}-content-holder {
       order: 0;
-      margin-right: -@border-width-base;
+      margin-right: calc(0px - @border-width-base);
       border-right: @border-width-base @border-style-base @border-color-split;
 
       > .@{tab-prefix-cls}-content > .@{tab-prefix-cls}-tabpane {

@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @upload-prefix-cls: ~'@{ant-prefix}-upload';
 @upload-item: ~'@{ant-prefix}-upload-list-item';
@@ -42,7 +42,7 @@
   &-item {
     &-name {
       .@{upload-prefix-cls}-list-rtl & {
-        padding-right: @font-size-base + 8px;
+        padding-right: calc(@font-size-base + 8px);
         padding-left: 0;
       }
     }
@@ -83,7 +83,7 @@
 
     &-progress {
       .@{upload-prefix-cls}-list-rtl & {
-        padding-right: @font-size-base + 12px;
+        padding-right: calc(@font-size-base + 12px);
         padding-left: 0;
       }
     }

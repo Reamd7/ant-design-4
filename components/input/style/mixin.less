@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @input-affix-with-clear-btn-width: 38px;
 
@@ -7,29 +7,31 @@
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   font-size: @font-size-lg;
+  line-height: calc(@input-height-lg - @input-padding-vertical-lg * 2 - @border-width-base * 2);
 }
 
 .input-sm() {
   padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
+  line-height: calc(@input-height-sm - @input-padding-vertical-sm * 2 - @border-width-base * 2);
 }
 
 // input status
 // == when focus or active
 .active(@borderColor: @primary-color; @hoverBorderColor: @primary-color-hover; @outlineColor: @primary-color-outline) {
-  & when (@theme = dark) {
-    border-color: @borderColor;
-  }
-  & when (not (@theme = dark) and not (@theme = variable)) {
-    border-color: @hoverBorderColor;
-  }
-  & when not (@theme = variable) {
-    box-shadow: @input-outline-offset @outline-blur-size @outline-width
-      fade(@borderColor, @outline-fade);
-  }
-  & when (@theme = variable) {
-    border-color: @hoverBorderColor;
-    box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
-  }
+  // & when (@theme = dark) {
+  //   border-color: @borderColor;
+  // }
+  // & when (not (@theme = dark) and not (@theme = variable)) {
+  //   border-color: @hoverBorderColor;
+  // }
+  // & when not (@theme = variable) {
+  //   box-shadow: @input-outline-offset @outline-blur-size @outline-width
+  //     fade(@borderColor, @outline-fade);
+  // }
+  // & when (@theme = variable) {
+  border-color: @hoverBorderColor;
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
+  // }
   border-right-width: @border-width-base;
   outline: 0;
 }
@@ -62,7 +64,7 @@
   padding: @input-padding-vertical-base @input-padding-horizontal-base;
   color: @input-color;
   font-size: @font-size-base;
-  line-height: @line-height-base;
+  line-height: calc(@input-height-base - @input-padding-vertical-base * 2 - @border-width-base * 2);
   background-color: @input-bg;
   background-image: none;
   border: @border-width-base @border-style-base @input-border-color;
@@ -198,7 +200,7 @@
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
-      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
+      margin: calc(1px - @input-padding-vertical-base) calc(0px - @input-padding-horizontal-base);
 
       &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
         .@{ant-prefix}-select-selector {
@@ -217,7 +219,7 @@
 
     // https://github.com/ant-design/ant-design/issues/31333
     .@{ant-prefix}-cascader-picker {
-      margin: -9px (-@control-padding-horizontal);
+      margin: -9px calc(0px - @control-padding-horizontal);
       background-color: transparent;
       .@{ant-prefix}-cascader-input {
         text-align: left;
@@ -345,7 +347,7 @@
     }
 
     & > *:not(:last-child) {
-      margin-right: -@border-width-base;
+      margin-right: calc(0px - @border-width-base);
       border-right-width: @border-width-base;
     }
 

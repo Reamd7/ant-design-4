@@ -1,4 +1,4 @@
-@import '../../style/mixins/index';
+@import (reference) '../../style/mixins/index.less';
 
 @btn-prefix-cls: ~'@{ant-prefix}-btn';
 
@@ -18,8 +18,8 @@
 
       &::after {
         position: absolute;
-        top: -@border-width-base;
-        left: -@border-width-base;
+        top: calc(0px - @border-width-base);
+        left: calc(0px - @border-width-base);
         display: inline-block;
         width: @border-width-base;
         height: calc(100% + @border-width-base * 2);
@@ -57,7 +57,7 @@
     &.@{btn-prefix-cls}-primary {
       &:not([disabled]) + &:not([disabled]) {
         &::after {
-          right: -@border-width-base;
+          right: calc(0px - @border-width-base);
         }
       }
     }
@@ -74,8 +74,8 @@
 
         &::after {
           position: absolute;
-          top: -@border-width-base;
-          left: -@border-width-base;
+          top: calc(0px - @border-width-base);
+          left: calc(0px - @border-width-base);
           display: inline-block;
           width: calc(100% + @border-width-base * 2);
           height: @border-width-base;

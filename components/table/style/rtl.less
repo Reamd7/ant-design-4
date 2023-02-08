@@ -1,5 +1,5 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+@import (reference) '../../style/themes/index.less';
+@import (reference) '../../style/mixins/index.less';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @table-wrapepr-cls: ~'@{table-prefix-cls}-wrapper';
@@ -32,7 +32,9 @@
           }
         }
 
-        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before {
+        &:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(
+            .@{table-prefix-cls}-row-expand-icon-cell
+          ):not([colspan])::before {
           .@{table-wrapepr-rtl-cls} & {
             right: auto;
             left: 0;
@@ -52,7 +54,9 @@
       // ========================= Nest Table ===========================
       .@{table-prefix-cls}-wrapper:only-child {
         .@{table-prefix-cls}.@{table-prefix-cls}-rtl {
-          margin: -@table-padding-vertical (@table-padding-horizontal + ceil(@font-size-sm * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
+          margin: calc(0px - @table-padding-vertical)
+            calc(@table-padding-horizontal + @content-height-sm) calc(0px - @table-padding-vertical)
+            calc(0px - @table-padding-horizontal);
         }
       }
     }
@@ -102,7 +106,7 @@
 
   &-filter-trigger {
     .@{table-wrapepr-rtl-cls} & {
-      margin: -4px 4px -4px (-@table-padding-horizontal / 2);
+      margin: -4px 4px -4px calc(@table-padding-horizontal / -2);
     }
   }
 

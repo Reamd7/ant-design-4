@@ -1,13 +1,13 @@
 // mixins for button
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
-  @padding-vertical: max(
-    (round(((@height - @font-size * @line-height-base) / 2) * 10) / 10) - @border-width-base,
-    0
-  );
+  @content-height: calc(@font-size * @line-height-base);
+  @padding-vertical: calc((@height - @content-height) / 2 - @border-width-base); // !! TODO
+  // @padding-vertical: calc((@height - @content-height) / 2 - @border-width-base);
   height: @height;
   padding: @padding-vertical @padding-horizontal;
   font-size: @font-size;
+  line-height: @content-height;
   border-radius: @border-radius;
 }
 
@@ -55,32 +55,32 @@
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-      );
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-      );
-    }
+    // & when (@theme = dark) {
+    //   .button-color(
+    //     @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+    //   );
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(
+    //     @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+    //   );
+    // }
     & when (@theme = variable) {
       .button-color(@color; @backgroundHover; @backgroundHover);
     }
   }
 
   &:active {
-    & when (@theme = dark) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-      );
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(
-        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-      );
-    }
+    // & when (@theme = dark) {
+    //   .button-color(
+    //     @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+    //   );
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(
+    //     @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+    //   );
+    // }
     & when (@theme = variable) {
       .button-color(@color; @backgroundActive; @backgroundActive);
     }
@@ -94,30 +94,30 @@
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(@primary-5; @background; @primary-5);
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 5) `
-      );
-    }
+    // & when (@theme = dark) {
+    //   .button-color(@primary-5; @background; @primary-5);
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(
+    //     ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
+    //       ~`colorPalette('@{btn-primary-bg}', 5) `
+    //   );
+    // }
     & when (@theme = variable) {
       .button-color(@primary-color-hover; @background; @primary-color-hover);
     }
   }
 
   &:active {
-    & when (@theme = dark) {
-      .button-color(@primary-7; @background; @primary-7);
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 7) `
-      );
-    }
+    // & when (@theme = dark) {
+    //   .button-color(@primary-7; @background; @primary-7);
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(
+    //     ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
+    //       ~`colorPalette('@{btn-primary-bg}', 7) `
+    //   );
+    // }
     & when (@theme = variable) {
       .button-color(@primary-color-active; @background; @primary-color-active);
     }
@@ -132,27 +132,27 @@
   &:hover,
   &:focus {
     & when (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
-      }
-      & when (not (@theme = dark) and not (@theme = variable)) {
-        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
-      }
+      // & when (@theme = dark) {
+      //   .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
+      // }
+      // & when (not (@theme = dark) and not (@theme = variable)) {
+      //   .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
+      // }
       & when (@theme = variable) {
         .button-color(@borderActive; transparent; transparent);
       }
     }
     & when not (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
-        );
-      }
-      & when (not (@theme = dark) and not (@theme = variable)) {
-        .button-color(
-          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
-        );
-      }
+      // & when (@theme = dark) {
+      //   .button-color(
+      //     ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
+      //   );
+      // }
+      // & when (not (@theme = dark) and not (@theme = variable)) {
+      //   .button-color(
+      //     ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
+      //   );
+      // }
       & when (@theme = variable) {
         .button-color(@borderHover; transparent; @borderHover);
       }
@@ -161,27 +161,27 @@
 
   &:active {
     & when (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
-      }
-      & when (not (@theme = dark) and not (@theme = variable)) {
-        .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
-      }
+      // & when (@theme = dark) {
+      //   .button-color(~`colorPalette('@{color}', 5) `; null; transparent);
+      // }
+      // & when (not (@theme = dark) and not (@theme = variable)) {
+      //   .button-color(~`colorPalette('@{color}', 7) `; null; transparent);
+      // }
       & when (@theme = variable) {
         .button-color(@borderActive; transparent; transparent);
       }
     }
     & when not (@border = transparent) {
-      & when (@theme = dark) {
-        .button-color(
-          ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
-        );
-      }
-      & when (not (@theme = dark) and not (@theme = variable)) {
-        .button-color(
-          ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
-        );
-      }
+      // & when (@theme = dark) {
+      //   .button-color(
+      //     ~`colorPalette('@{color}', 5) `; null; ~`colorPalette('@{color}', 5) `
+      //   );
+      // }
+      // & when (not (@theme = dark) and not (@theme = variable)) {
+      //   .button-color(
+      //     ~`colorPalette('@{color}', 7) `; null; ~`colorPalette('@{color}', 7) `
+      //   );
+      // }
       & when (@theme = variable) {
         .button-color(@borderActive; transparent; @borderActive);
       }
@@ -302,36 +302,36 @@
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
-          `
-      );
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
-          `
-      );
-    }
+    // & when (@theme = dark) {
+    //   .button-color(
+    //     ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
+    //       `
+    //   );
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(
+    //     ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
+    //       `
+    //   );
+    // }
     & when (@theme = variable) {
       .button-color(@error-color-hover, @btn-default-bg, @error-color-hover);
     }
   }
 
   &:active {
-    & when (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
-          `
-      );
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(
-        ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
-          `
-      );
-    }
+    // & when (@theme = dark) {
+    //   .button-color(
+    //     ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5)
+    //       `
+    //   );
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(
+    //     ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7)
+    //       `
+    //   );
+    // }
     & when (@theme = variable) {
       .button-color(@error-color-active, @btn-default-bg, @error-color-active);
     }
@@ -345,24 +345,24 @@
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
-    }
+    // & when (@theme = dark) {
+    //   .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+    // }
     & when (@theme = variable) {
       .button-color(@error-color-hover; transparent; transparent);
     }
   }
 
   &:active {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
-    }
+    // & when (@theme = dark) {
+    //   .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+    // }
     & when (@theme = variable) {
       .button-color(@error-color-active; transparent; transparent);
     }
@@ -417,7 +417,7 @@
 
   &:active {
     color: @text-color;
-    background: fadein(@btn-text-hover-bg, 1%);
+    background: @btn-text-hover-bg__fadein_1;
     border-color: transparent;
   }
 
@@ -429,41 +429,41 @@
 
   &:hover,
   &:focus {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
-    }
+    // & when (@theme = dark) {
+    //   .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg; transparent);
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg; transparent);
+    // }
     & when (@theme = variable) {
       .button-color(@error-color-hover; @btn-text-hover-bg; transparent);
     }
   }
 
   &:active {
-    & when (@theme = dark) {
-      .button-color(~`colorPalette('@{error-color}', 5) `; fadein(@btn-text-hover-bg, 1%); transparent);
-    }
-    & when (not (@theme = dark) and not (@theme = variable)) {
-      .button-color(~`colorPalette('@{error-color}', 7) `; fadein(@btn-text-hover-bg, 1%); transparent);
-    }
+    // & when (@theme = dark) {
+    //   .button-color(~`colorPalette('@{error-color}', 5) `; @btn-text-hover-bg__fadein_1; transparent);
+    // }
+    // & when (not (@theme = dark) and not (@theme = variable)) {
+    //   .button-color(~`colorPalette('@{error-color}', 7) `; @btn-text-hover-bg__fadein_1; transparent);
+    // }
     & when (@theme = variable) {
-      .button-color(@error-color-active; fadein(@btn-text-hover-bg, 1%); transparent);
+      .button-color(@error-color-active; @btn-text-hover-bg__fadein_1; transparent);
     }
   }
   .button-disabled(@disabled-color; transparent; transparent);
 }
 // round button
 .btn-round(@btnClassName: btn) {
-  .button-size(@btn-circle-size; (@btn-circle-size / 2); @font-size-base; @btn-circle-size);
+  .button-size(@btn-circle-size; calc(@btn-circle-size / 2); @font-size-base; @btn-circle-size);
   &.@{btnClassName}-lg {
     .button-size(
-      @btn-circle-size-lg; (@btn-circle-size-lg / 2); @btn-font-size-lg; @btn-circle-size-lg
+      @btn-circle-size-lg; calc(@btn-circle-size-lg / 2); @btn-font-size-lg; @btn-circle-size-lg
     );
   }
   &.@{btnClassName}-sm {
     .button-size(
-      @btn-circle-size-sm; (@btn-circle-size-sm / 2); @font-size-base; @btn-circle-size-sm
+      @btn-circle-size-sm; calc(@btn-circle-size-sm / 2); @font-size-base; @btn-circle-size-sm
     );
   }
 }
